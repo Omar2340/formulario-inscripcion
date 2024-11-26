@@ -29,9 +29,14 @@
             border-color: red;
         }
 
+        .form-group.radio-group {
+            margin-top: 10px;
+        }
+
         .form-group.radio-group label {
             display: inline-block;
             margin-right: 20px;
+            margin-top: 10px;
         }
 
         #backButton {
@@ -47,6 +52,43 @@
 
         #backButton:hover {
             background-color: #555;
+        }
+
+        /* Estilo del formulario para alinearlo correctamente */
+        main {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        form {
+            width: 80%;
+            margin-left: 50px;
+        }
+
+        fieldset {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        legend {
+            font-weight: bold;
+        }
+
+        /* Separador de las preguntas en Encuesta Personal */
+        .separator {
+            margin: 20px 0;
+            border-top: 2px solid #ccc;
+        }
+
+        /* Ajuste de los botones de selección */
+        .radio-group label {
+            vertical-align: middle;
+        }
+
+        .radio-group input {
+            margin-right: 5px;
         }
     </style>
 </head>
@@ -183,46 +225,49 @@
                 <fieldset>
                     <legend>Encuesta Personal</legend>
 
+                    <p>¿Tiene usted hijos?</p>
                     <div class="form-group radio-group">
-                        <p>¿Tiene usted hijos?</p>
-                        <label for="no_hijos"><input type="radio" id="no_hijos" name="hijos" value="no_tengo" required> No tengo</label>
-                        <label for="1_hijo"><input type="radio" id="1_hijo" name="hijos" value="1_hijo" required> 1 hijo</label>
-                        <label for="2_hijos"><input type="radio" id="2_hijos" name="hijos" value="2_hijos" required> 2 hijos</label>
-                        <label for="3_hijos"><input type="radio" id="3_hijos" name="hijos" value="3_hijos" required> 3 hijos</label>
-                        <label for="4_hijos"><input type="radio" id="4_hijos" name="hijos" value="4_hijos" required> 4 hijos</label>
-                        <label for="mas_de_4_hijos"><input type="radio" id="mas_de_4_hijos" name="hijos" value="mas_de_4_hijos" required> Más de 4 hijos</label>
+                        <label><input type="radio" id="no_hijos" name="hijos" value="no_tengo" required> No tengo</label>
+                        <label><input type="radio" id="1_hijo" name="hijos" value="1_hijo" required> 1 hijo</label>
+                        <label><input type="radio" id="2_hijos" name="hijos" value="2_hijos" required> 2 hijos</label>
+                        <label><input type="radio" id="3_hijos" name="hijos" value="3_hijos" required> 3 hijos</label>
+                        <label><input type="radio" id="4_hijos" name="hijos" value="4_hijos" required> 4 hijos</label>
+                        <label><input type="radio" id="mas_de_4_hijos" name="hijos" value="mas_de_4_hijos" required> Más de 4 hijos</label>
+                    </div>
+                    <div class="separator"></div>
+
+                    <p>¿Se reconoce como parte de alguna de las siguientes poblaciones?</p>
+                    <div class="form-group radio-group">
+                        <label><input type="radio" id="ninguna" name="poblacion" value="ninguna" required> Ninguna</label>
+                        <label><input type="radio" id="indigena" name="poblacion" value="indigena" required> Indígena</label>
+                        <label><input type="radio" id="afrocolombianos" name="poblacion" value="afrocolombianos" required> Afrocolombianos</label>
+                        <label><input type="radio" id="raizales" name="poblacion" value="raizales" required> Raizales</label>
+                        <label><input type="radio" id="pueblo_rom" name="poblacion" value="pueblo_rom" required> Pueblo ROM o Gitano</label>
+                    </div>
+                    <div class="separator"></div>
+
+                    <p>¿Cuenta con alguna discapacidad?</p>
+                    <div class="form-group radio-group">
+                        <label><input type="radio" id="discapacidad_ninguna" name="discapacidad" value="ninguna" required> Ninguna</label>
+                        <label><input type="radio" id="discapacidad_motriz" name="discapacidad" value="motriz" required> Discapacidad Motriz</label>
+                        <label><input type="radio" id="discapacidad_sorda" name="discapacidad" value="sorda" required> Discapacidad Sorda</label>
+                        <label><input type="radio" id="discapacidad_cognitiva" name="discapacidad" value="cognitiva" required> Discapacidad Cognitiva</label>
+                        <label><input type="radio" id="discapacidad_sordo_cego" name="discapacidad" value="sordo_cego" required> Sordo Ceguera</label>
+                        <label><input type="radio" id="discapacidad_trastorno" name="discapacidad" value="trastorno" required> Trastorno de la voz y el habla</label>
+                        <label><input type="radio" id="discapacidad_otra" name="discapacidad" value="otra" required> Otra</label>
                     </div>
 
-                    <div class="form-group radio-group">
-                        <p>¿Se reconoce como parte de alguna de las siguientes poblaciones?</p>
-                        <label for="ninguna"><input type="radio" id="ninguna" name="poblacion" value="ninguna" required> Ninguna</label>
-                        <label for="indigena"><input type="radio" id="indigena" name="poblacion" value="indigena" required> Indígena</label>
-                        <label for="afrocolombianos"><input type="radio" id="afrocolombianos" name="poblacion" value="afrocolombianos" required> Afrocolombianos</label>
-                        <label for="raizales"><input type="radio" id="raizales" name="poblacion" value="raizales" required> Raizales</label>
-                        <label for="pueblo_rom"><input type="radio" id="pueblo_rom" name="poblacion" value="pueblo_rom" required> Pueblo ROM o Gitano</label>
+                    <div id="otra_discapacidad" style="display:none;">
+                        <label for="descripcion_discapacidad">¿Cuál es su discapacidad?</label>
+                        <input type="text" id="descripcion_discapacidad" name="descripcion_discapacidad">
                     </div>
+                    <div class="separator"></div>
 
+                    <p>¿Usted trabaja actualmente?</p>
                     <div class="form-group radio-group">
-                        <p>¿Cuenta con alguna discapacidad?</p>
-                        <label for="discapacidad_ninguna"><input type="radio" id="discapacidad_ninguna" name="discapacidad" value="ninguna" required> Ninguna</label>
-                        <label for="discapacidad_motriz"><input type="radio" id="discapacidad_motriz" name="discapacidad" value="motriz" required> Discapacidad Motriz</label>
-                        <label for="discapacidad_sorda"><input type="radio" id="discapacidad_sorda" name="discapacidad" value="sorda" required> Discapacidad Sorda</label>
-                        <label for="discapacidad_cognitiva"><input type="radio" id="discapacidad_cognitiva" name="discapacidad" value="cognitiva" required> Discapacidad Cognitiva</label>
-                        <label for="discapacidad_sordo_cego"><input type="radio" id="discapacidad_sordo_cego" name="discapacidad" value="sordo_cego" required> Sordo Ceguera</label>
-                        <label for="discapacidad_trastorno"><input type="radio" id="discapacidad_trastorno" name="discapacidad" value="trastorno" required> Trastorno de la voz y el habla</label>
-                        <label for="discapacidad_otra"><input type="radio" id="discapacidad_otra" name="discapacidad" value="otra" required> Otra</label>
-
-                        <div id="otra_discapacidad" style="display:none;">
-                            <label for="descripcion_discapacidad">¿Cuál es su discapacidad?</label>
-                            <input type="text" id="descripcion_discapacidad" name="descripcion_discapacidad">
-                        </div>
-                    </div>
-
-                    <div class="form-group radio-group">
-                        <p>¿Usted trabaja actualmente?</p>
-                        <label for="no_trabajo"><input type="radio" id="no_trabajo" name="trabajo" value="no_trabajo" required> No estoy trabajando</label>
-                        <label for="empleado"><input type="radio" id="empleado" name="trabajo" value="empleado" required> Sí, soy empleado</label>
-                        <label for="independiente"><input type="radio" id="independiente" name="trabajo" value="independiente" required> Sí, soy independiente</label>
+                        <label><input type="radio" id="no_trabajo" name="trabajo" value="no_trabajo" required> No estoy trabajando</label>
+                        <label><input type="radio" id="empleado" name="trabajo" value="empleado" required> Sí, soy empleado</label>
+                        <label><input type="radio" id="independiente" name="trabajo" value="independiente" required> Sí, soy independiente</label>
                     </div>
 
                     <button type="submit">Enviar Formulario</button>
