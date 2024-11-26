@@ -15,155 +15,142 @@
     </header>
 
     <main>
-        <form action="#" method="POST">
-            <!-- Selección de carrera -->
-            <fieldset>
-                <legend>¿En qué carrera desea inscribirse?</legend>
-                <select name="carrera" required>
-                    <option value="" disabled selected>Seleccione una carrera</option>
-                    <option value="administracion">Administración de Empresas</option>
-                    <option value="bacteriologia">Bacteriología</option>
-                    <option value="contaduria">Contaduría Pública</option>
-                    <option value="derecho">Derecho</option>
-                    <option value="enfermeria">Enfermería</option>
-                    <option value="ingenieria_sistemas">Ingeniería de Sistemas</option>
-                    <option value="instrumentacion">Instrumentación Quirúrgica</option>
-                    <option value="educacion_infantil">Educación Infantil</option>
-                    <option value="medicina">Medicina</option>
-                    <option value="odontologia">Odontología</option>
-                    <option value="prehospitalaria">Tecnología en Atención Prehospitalaria</option>
-                    <option value="estetica">Tecnología en Estética y Cosmetología</option>
-                    <option value="mecanica_dental">Tecnología en Mecánica Dental</option>
-                    <option value="trabajo_social">Trabajo Social</option>
-                </select>
-            </fieldset>
+        <form id="formularioInscripcion" action="#" method="POST">
+            <!-- Sección de selección de carrera -->
+            <div id="seccionCarrera">
+                <fieldset>
+                    <legend>¿En qué carrera desea inscribirse?</legend>
+                    <select name="carrera" required>
+                        <option value="" disabled selected>Seleccione una carrera</option>
+                        <option value="administracion">Administración de Empresas</option>
+                        <option value="bacteriologia">Bacteriología</option>
+                        <option value="contaduria">Contaduría Pública</option>
+                        <option value="derecho">Derecho</option>
+                        <option value="enfermeria">Enfermería</option>
+                        <option value="ingenieria_sistemas">Ingeniería de Sistemas</option>
+                        <option value="instrumentacion">Instrumentación Quirúrgica</option>
+                        <option value="educacion_infantil">Educación Infantil</option>
+                        <option value="medicina">Medicina</option>
+                        <option value="odontologia">Odontología</option>
+                        <option value="prehospitalaria">Tecnología en Atención Prehospitalaria</option>
+                        <option value="estetica">Tecnología en Estética y Cosmetología</option>
+                        <option value="mecanica_dental">Tecnología en Mecánica Dental</option>
+                        <option value="trabajo_social">Trabajo Social</option>
+                    </select>
+                </fieldset>
+                <button type="button" onclick="mostrarInformacionPersonal()">Siguiente</button>
+            </div>
 
-            <!-- Información personal -->
-            <fieldset>
-                <legend>Información Personal</legend>
-                <label for="nombre">Primer Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
-                
-                <label for="segundo_nombre">Segundo Nombre:</label>
-                <input type="text" id="segundo_nombre" name="segundo_nombre">
+            <!-- Sección de información personal -->
+            <div id="seccionInformacionPersonal" style="display:none;">
+                <fieldset>
+                    <legend>Información Personal</legend>
+                    <label for="nombre">Primer Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
 
-                <label for="primer_apellido">Primer Apellido:</label>
-                <input type="text" id="primer_apellido" name="primer_apellido" required>
+                    <label for="segundo_nombre">Segundo Nombre:</label>
+                    <input type="text" id="segundo_nombre" name="segundo_nombre">
 
-                <label for="segundo_apellido">Segundo Apellido:</label>
-                <input type="text" id="segundo_apellido" name="segundo_apellido">
+                    <label for="primer_apellido">Primer Apellido:</label>
+                    <input type="text" id="primer_apellido" name="primer_apellido" required>
 
-                <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
-            </fieldset>
+                    <label for="segundo_apellido">Segundo Apellido:</label>
+                    <input type="text" id="segundo_apellido" name="segundo_apellido">
 
-            <!-- Datos adicionales -->
-            <fieldset>
-                <legend>Datos Adicionales</legend>
+                    <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+                </fieldset>
+                <fieldset>
+                    <legend>Datos Adicionales</legend>
+                    <label for="tipo_documento">Tipo de Documento:</label>
+                    <select name="tipo_documento" id="tipo_documento" required>
+                        <option value="" disabled selected>Seleccione un tipo de documento</option>
+                        <option value="cedula">Cédula de Ciudadanía</option>
+                        <option value="pasaporte">Pasaporte</option>
+                        <option value="tarjeta_identidad">Tarjeta de Identidad</option>
+                        <option value="cedula_extranjeria">Cédula de Extranjería</option>
+                    </select>
 
-                <label for="tipo_documento">Tipo de Documento:</label>
-                <select name="tipo_documento" id="tipo_documento" required>
-                    <option value="" disabled selected>Seleccione un tipo de documento</option>
-                    <option value="cedula">Cédula de Ciudadanía</option>
-                    <option value="pasaporte">Pasaporte</option>
-                    <option value="tarjeta_identidad">Tarjeta de Identidad</option>
-                    <option value="cedula_extranjeria">Cédula de Extranjería</option>
-                </select>
-                
-                <label for="numero_documento">Número de Documento:</label>
-                <input type="text" id="numero_documento" name="numero_documento" required>
+                    <label for="numero_documento">Número de Documento:</label>
+                    <input type="text" id="numero_documento" name="numero_documento" required>
 
-                <label for="sexo">Sexo Biológico:</label>
-                <select name="sexo" id="sexo" required>
-                    <option value="" disabled selected>Seleccione su sexo biológico</option>
-                    <option value="masculino">Masculino</option>
-                    <option value="femenino">Femenino</option>
-                    <option value="otro">Otro</option>
-                </select>
+                    <label for="sexo">Sexo Biológico:</label>
+                    <select name="sexo" id="sexo" required>
+                        <option value="" disabled selected>Seleccione su sexo biológico</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="femenino">Femenino</option>
+                        <option value="otro">Otro</option>
+                    </select>
 
-                <label for="estado_civil">Estado Civil:</label>
-                <select name="estado_civil" id="estado_civil" required>
-                    <option value="" disabled selected>Seleccione su estado civil</option>
-                    <option value="soltero">Soltero</option>
-                    <option value="casado">Casado</option>
-                    <option value="divorciado">Divorciado</option>
-                    <option value="viudo">Viudo</option>
-                    <option value="union_libre">Unión Libre</option>
-                </select>
+                    <label for="estado_civil">Estado Civil:</label>
+                    <select name="estado_civil" id="estado_civil" required>
+                        <option value="" disabled selected>Seleccione su estado civil</option>
+                        <option value="soltero">Soltero</option>
+                        <option value="casado">Casado</option>
+                        <option value="divorciado">Divorciado</option>
+                        <option value="viudo">Viudo</option>
+                        <option value="union_libre">Unión Libre</option>
+                    </select>
 
-                <label for="email">Correo Electrónico:</label>
-                <input type="email" id="email" name="email" required>
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" required>
 
-                <label for="telefono">Número de Teléfono:</label>
-                <input type="tel" id="telefono" name="telefono" required>
+                    <label for="telefono">Número de Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" required>
 
-                <label for="celular">Número de Celular:</label>
-                <input type="tel" id="celular" name="celular" required>
-            </fieldset>
+                    <label for="celular">Número de Celular:</label>
+                    <input type="tel" id="celular" name="celular" required>
+                </fieldset>
+                <button type="button" onclick="mostrarEncuestaPersonal()">Siguiente</button>
+            </div>
 
-            <!-- Dirección residencial -->
-            <fieldset>
-                <legend>Dirección Residencial</legend>
-                <label for="pais">País:</label>
-                <input type="text" id="pais" name="pais" required>
+            <!-- Sección de encuesta personal -->
+            <div id="seccionEncuestaPersonal" style="display:none;">
+                <fieldset>
+                    <legend>Encuesta Personal</legend>
+                    <p>¿Tiene usted hijos?</p>
+                    <input type="radio" id="no_hijos" name="hijos" value="no_tengo" required>
+                    <label for="no_hijos">No tengo</label><br>
 
-                <label for="ciudad">Ciudad:</label>
-                <input type="text" id="ciudad" name="ciudad" required>
+                    <input type="radio" id="1_hijo" name="hijos" value="1_hijo" required>
+                    <label for="1_hijo">1 hijo</label><br>
 
-                <label for="direccion">Dirección:</label>
-                <input type="text" id="direccion" name="direccion" required>
-            </fieldset>
+                    <input type="radio" id="2_hijos" name="hijos" value="2_hijos" required>
+                    <label for="2_hijos">2 hijos</label><br>
 
-            <!-- Encuesta personal -->
-            <fieldset>
-                <legend>Encuesta Personal</legend>
+                    <input type="radio" id="3_hijos" name="hijos" value="3_hijos" required>
+                    <label for="3_hijos">3 hijos</label><br>
 
-                <p>¿Tiene usted hijos?</p>
-                <input type="radio" id="no_hijos" name="hijos" value="no_tengo" required>
-                <label for="no_hijos">No tengo</label><br>
+                    <input type="radio" id="4_hijos" name="hijos" value="4_hijos" required>
+                    <label for="4_hijos">4 hijos</label><br>
 
-                <input type="radio" id="1_hijo" name="hijos" value="1_hijo" required>
-                <label for="1_hijo">1 hijo</label><br>
+                    <input type="radio" id="mas_de_4_hijos" name="hijos" value="mas_de_4_hijos" required>
+                    <label for="mas_de_4_hijos">Más de 4 hijos</label><br>
 
-                <input type="radio" id="2_hijos" name="hijos" value="2_hijos" required>
-                <label for="2_hijos">2 hijos</label><br>
+                    <p>¿Se reconoce como parte de alguna de las siguientes poblaciones?</p>
+                    <input type="radio" id="ninguna" name="poblacion" value="ninguna" required>
+                    <label for="ninguna">Ninguna</label><br>
 
-                <input type="radio" id="3_hijos" name="hijos" value="3_hijos" required>
-                <label for="3_hijos">3 hijos</label><br>
+                    <input type="radio" id="indigena" name="poblacion" value="indigena" required>
+                    <label for="indigena">Indígena</label><br>
 
-                <input type="radio" id="4_hijos" name="hijos" value="4_hijos" required>
-                <label for="4_hijos">4 hijos</label><br>
+                    <input type="radio" id="afrocolombianos" name="poblacion" value="afrocolombianos" required>
+                    <label for="afrocolombianos">Afrocolombianos</label><br>
 
-                <input type="radio" id="mas_de_4_hijos" name="hijos" value="mas_de_4_hijos" required>
-                <label for="mas_de_4_hijos">Más de 4 hijos</label><br>
+                    <input type="radio" id="raizales" name="poblacion" value="raizales" required>
+                    <label for="raizales">Raizales</label><br>
 
-                <p>¿Se reconoce como parte de alguna de las siguientes poblaciones?</p>
-                <input type="radio" id="ninguna" name="poblacion" value="ninguna" required>
-                <label for="ninguna">Ninguna</label><br>
+                    <input type="radio" id="pueblo_rom" name="poblacion" value="pueblo_rom" required>
+                    <label for="pueblo_rom">Pueblo ROM o Gitano</label><br>
 
-                <input type="radio" id="indigena" name="poblacion" value="indigena" required>
-                <label for="indigena">Indígena</label><br>
+                    <p>¿Cuenta con alguna discapacidad?</p>
+                    <input type="radio" id="discapacidad_ninguna" name="discapacidad" value="ninguna" required>
+                    <label for="discapacidad_ninguna">Ninguna</label><br>
 
-                <input type="radio" id="afrocolombianos" name="poblacion" value="afrocolombianos" required>
-                <label for="afrocolombianos">Afrocolombianos</label><br>
+                    <input type="radio" id="discapacidad_motriz" name="discapacidad" value="motriz" required>
+                    <label for="discapacidad_motriz">Discapacidad Motriz</label><br>
 
-                <input type="radio" id="raizales" name="poblacion" value="raizales" required>
-                <label for="raizales">Raizales</label><br>
+                    <input type="radio" id="discapacidad_sorda" name="discapacidad" value="sorda" required>
+                    <label for="discapacidad_sorda">Discapacidad Sorda</label><br>
 
-                <input type="radio" id="pueblo_rom" name="poblacion" value="pueblo_rom" required>
-                <label for="pueblo_rom">Pueblo ROM o Gitano</label><br>
-
-                <p>¿Cuenta con alguna discapacidad?</p>
-                <input type="radio" id="discapacidad_ninguna" name="discapacidad" value="ninguna" required>
-                <label for="discapacidad_ninguna">Ninguna</label><br>
-
-                <input type="radio" id="discapacidad_motriz" name="discapacidad" value="motriz" required>
-                <label for="discapacidad_motriz">Discapacidad Motriz</label><br>
-
-                <input type="radio" id="discapacidad_sorda" name="discapacidad" value="sorda" required>
-                <label for="discapacidad_sorda">Discapacidad Sorda</label><br>
-
-                <input type="radio" id="discapacidad_cognitiva" name="discapacidad" value="cognitiva" required>
-                <label for="discapacidad_cognitiva">Discapacidad Cognitiva</label><br>
-
-                <input type="radio" id="discapacidad_sordo_cego" name="discapacidad" value
+                    <input type="radio" id="discapacidad_cognitiva
