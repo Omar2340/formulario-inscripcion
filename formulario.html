@@ -5,12 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Inscripción</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: inline-block;
+            width: 200px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+        }
+
+        .form-group.error input, .form-group.error select {
+            border-color: red;
+        }
+
+        .form-group.radio-group label {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        #backButton {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 15px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #backButton:hover {
+            background-color: #555;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Formulario de Inscripción a Carrera</h1>
         <nav>
-            <a href="index.html">Volver a la Página Principal</a>
+            <button id="backButton" onclick="history.back()">Volver a la Página Anterior</button>
         </nav>
     </header>
 
@@ -45,62 +89,92 @@
             <div id="seccionInformacionPersonal" style="display:none;">
                 <fieldset>
                     <legend>Información Personal</legend>
-                    <label for="nombre">Primer Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required>
 
-                    <label for="segundo_nombre">Segundo Nombre:</label>
-                    <input type="text" id="segundo_nombre" name="segundo_nombre">
+                    <div class="form-group">
+                        <label for="nombre">Primer Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                        <span class="error" id="errorNombre"></span>
+                    </div>
 
-                    <label for="primer_apellido">Primer Apellido:</label>
-                    <input type="text" id="primer_apellido" name="primer_apellido" required>
+                    <div class="form-group">
+                        <label for="segundo_nombre">Segundo Nombre:</label>
+                        <input type="text" id="segundo_nombre" name="segundo_nombre">
+                    </div>
 
-                    <label for="segundo_apellido">Segundo Apellido:</label>
-                    <input type="text" id="segundo_apellido" name="segundo_apellido">
+                    <div class="form-group">
+                        <label for="primer_apellido">Primer Apellido:</label>
+                        <input type="text" id="primer_apellido" name="primer_apellido" required>
+                        <span class="error" id="errorPrimerApellido"></span>
+                    </div>
 
-                    <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-                    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+                    <div class="form-group">
+                        <label for="segundo_apellido">Segundo Apellido:</label>
+                        <input type="text" id="segundo_apellido" name="segundo_apellido">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+                    </div>
                 </fieldset>
+
                 <fieldset>
                     <legend>Datos Adicionales</legend>
-                    <label for="tipo_documento">Tipo de Documento:</label>
-                    <select name="tipo_documento" id="tipo_documento" required>
-                        <option value="" disabled selected>Seleccione un tipo de documento</option>
-                        <option value="cedula">Cédula de Ciudadanía</option>
-                        <option value="pasaporte">Pasaporte</option>
-                        <option value="tarjeta_identidad">Tarjeta de Identidad</option>
-                        <option value="cedula_extranjeria">Cédula de Extranjería</option>
-                    </select>
 
-                    <label for="numero_documento">Número de Documento:</label>
-                    <input type="text" id="numero_documento" name="numero_documento" required>
+                    <div class="form-group">
+                        <label for="tipo_documento">Tipo de Documento:</label>
+                        <select name="tipo_documento" id="tipo_documento" required>
+                            <option value="" disabled selected>Seleccione un tipo de documento</option>
+                            <option value="cedula">Cédula de Ciudadanía</option>
+                            <option value="pasaporte">Pasaporte</option>
+                            <option value="tarjeta_identidad">Tarjeta de Identidad</option>
+                            <option value="cedula_extranjeria">Cédula de Extranjería</option>
+                        </select>
+                    </div>
 
-                    <label for="sexo">Sexo Biológico:</label>
-                    <select name="sexo" id="sexo" required>
-                        <option value="" disabled selected>Seleccione su sexo biológico</option>
-                        <option value="masculino">Masculino</option>
-                        <option value="femenino">Femenino</option>
-                        <option value="otro">Otro</option>
-                    </select>
+                    <div class="form-group">
+                        <label for="numero_documento">Número de Documento:</label>
+                        <input type="text" id="numero_documento" name="numero_documento" required>
+                    </div>
 
-                    <label for="estado_civil">Estado Civil:</label>
-                    <select name="estado_civil" id="estado_civil" required>
-                        <option value="" disabled selected>Seleccione su estado civil</option>
-                        <option value="soltero">Soltero</option>
-                        <option value="casado">Casado</option>
-                        <option value="divorciado">Divorciado</option>
-                        <option value="viudo">Viudo</option>
-                        <option value="union_libre">Unión Libre</option>
-                    </select>
+                    <div class="form-group">
+                        <label for="sexo">Sexo Biológico:</label>
+                        <select name="sexo" id="sexo" required>
+                            <option value="" disabled selected>Seleccione su sexo biológico</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
 
-                    <label for="email">Correo Electrónico:</label>
-                    <input type="email" id="email" name="email" required>
+                    <div class="form-group">
+                        <label for="estado_civil">Estado Civil:</label>
+                        <select name="estado_civil" id="estado_civil" required>
+                            <option value="" disabled selected>Seleccione su estado civil</option>
+                            <option value="soltero">Soltero</option>
+                            <option value="casado">Casado</option>
+                            <option value="divorciado">Divorciado</option>
+                            <option value="viudo">Viudo</option>
+                            <option value="union_libre">Unión Libre</option>
+                        </select>
+                    </div>
 
-                    <label for="telefono">Número de Teléfono:</label>
-                    <input type="tel" id="telefono" name="telefono" required>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
 
-                    <label for="celular">Número de Celular:</label>
-                    <input type="tel" id="celular" name="celular" required>
+                    <div class="form-group">
+                        <label for="telefono">Número de Teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="celular">Número de Celular:</label>
+                        <input type="tel" id="celular" name="celular" required>
+                    </div>
                 </fieldset>
+
                 <button type="button" onclick="mostrarEncuestaPersonal()">Siguiente</button>
             </div>
 
@@ -109,77 +183,47 @@
                 <fieldset>
                     <legend>Encuesta Personal</legend>
 
-                    <p>¿Tiene usted hijos?</p>
-                    <input type="radio" id="no_hijos" name="hijos" value="no_tengo" required>
-                    <label for="no_hijos">No tengo</label><br>
-
-                    <input type="radio" id="1_hijo" name="hijos" value="1_hijo" required>
-                    <label for="1_hijo">1 hijo</label><br>
-
-                    <input type="radio" id="2_hijos" name="hijos" value="2_hijos" required>
-                    <label for="2_hijos">2 hijos</label><br>
-
-                    <input type="radio" id="3_hijos" name="hijos" value="3_hijos" required>
-                    <label for="3_hijos">3 hijos</label><br>
-
-                    <input type="radio" id="4_hijos" name="hijos" value="4_hijos" required>
-                    <label for="4_hijos">4 hijos</label><br>
-
-                    <input type="radio" id="mas_de_4_hijos" name="hijos" value="mas_de_4_hijos" required>
-                    <label for="mas_de_4_hijos">Más de 4 hijos</label><br>
-
-                    <p>¿Se reconoce como parte de alguna de las siguientes poblaciones?</p>
-                    <input type="radio" id="ninguna" name="poblacion" value="ninguna" required>
-                    <label for="ninguna">Ninguna</label><br>
-
-                    <input type="radio" id="indigena" name="poblacion" value="indigena" required>
-                    <label for="indigena">Indígena</label><br>
-
-                    <input type="radio" id="afrocolombianos" name="poblacion" value="afrocolombianos" required>
-                    <label for="afrocolombianos">Afrocolombianos</label><br>
-
-                    <input type="radio" id="raizales" name="poblacion" value="raizales" required>
-                    <label for="raizales">Raizales</label><br>
-
-                    <input type="radio" id="pueblo_rom" name="poblacion" value="pueblo_rom" required>
-                    <label for="pueblo_rom">Pueblo ROM o Gitano</label><br>
-
-                    <p>¿Cuenta con alguna discapacidad?</p>
-                    <input type="radio" id="discapacidad_ninguna" name="discapacidad" value="ninguna" required>
-                    <label for="discapacidad_ninguna">Ninguna</label><br>
-
-                    <input type="radio" id="discapacidad_motriz" name="discapacidad" value="motriz" required>
-                    <label for="discapacidad_motriz">Discapacidad Motriz</label><br>
-
-                    <input type="radio" id="discapacidad_sorda" name="discapacidad" value="sorda" required>
-                    <label for="discapacidad_sorda">Discapacidad Sorda</label><br>
-
-                    <input type="radio" id="discapacidad_cognitiva" name="discapacidad" value="cognitiva" required>
-                    <label for="discapacidad_cognitiva">Discapacidad Cognitiva</label><br>
-
-                    <input type="radio" id="discapacidad_sordo_cego" name="discapacidad" value="sordo_cego" required>
-                    <label for="discapacidad_sordo_cego">Sordo Ceguera</label><br>
-
-                    <input type="radio" id="discapacidad_trastorno" name="discapacidad" value="trastorno" required>
-                    <label for="discapacidad_trastorno">Trastorno de la voz y el habla</label><br>
-
-                    <input type="radio" id="discapacidad_otra" name="discapacidad" value="otra" required>
-                    <label for="discapacidad_otra">Otra</label><br>
-
-                    <div id="otra_discapacidad" style="display:none;">
-                        <label for="descripcion_discapacidad">¿Cuál es su discapacidad?</label>
-                        <input type="text" id="descripcion_discapacidad" name="descripcion_discapacidad">
+                    <div class="form-group radio-group">
+                        <p>¿Tiene usted hijos?</p>
+                        <label for="no_hijos"><input type="radio" id="no_hijos" name="hijos" value="no_tengo" required> No tengo</label>
+                        <label for="1_hijo"><input type="radio" id="1_hijo" name="hijos" value="1_hijo" required> 1 hijo</label>
+                        <label for="2_hijos"><input type="radio" id="2_hijos" name="hijos" value="2_hijos" required> 2 hijos</label>
+                        <label for="3_hijos"><input type="radio" id="3_hijos" name="hijos" value="3_hijos" required> 3 hijos</label>
+                        <label for="4_hijos"><input type="radio" id="4_hijos" name="hijos" value="4_hijos" required> 4 hijos</label>
+                        <label for="mas_de_4_hijos"><input type="radio" id="mas_de_4_hijos" name="hijos" value="mas_de_4_hijos" required> Más de 4 hijos</label>
                     </div>
 
-                    <p>¿Usted trabaja actualmente?</p>
-                    <input type="radio" id="no_trabajo" name="trabajo" value="no_trabajo" required>
-                    <label for="no_trabajo">No estoy trabajando</label><br>
+                    <div class="form-group radio-group">
+                        <p>¿Se reconoce como parte de alguna de las siguientes poblaciones?</p>
+                        <label for="ninguna"><input type="radio" id="ninguna" name="poblacion" value="ninguna" required> Ninguna</label>
+                        <label for="indigena"><input type="radio" id="indigena" name="poblacion" value="indigena" required> Indígena</label>
+                        <label for="afrocolombianos"><input type="radio" id="afrocolombianos" name="poblacion" value="afrocolombianos" required> Afrocolombianos</label>
+                        <label for="raizales"><input type="radio" id="raizales" name="poblacion" value="raizales" required> Raizales</label>
+                        <label for="pueblo_rom"><input type="radio" id="pueblo_rom" name="poblacion" value="pueblo_rom" required> Pueblo ROM o Gitano</label>
+                    </div>
 
-                    <input type="radio" id="empleado" name="trabajo" value="empleado" required>
-                    <label for="empleado">Sí, soy empleado</label><br>
+                    <div class="form-group radio-group">
+                        <p>¿Cuenta con alguna discapacidad?</p>
+                        <label for="discapacidad_ninguna"><input type="radio" id="discapacidad_ninguna" name="discapacidad" value="ninguna" required> Ninguna</label>
+                        <label for="discapacidad_motriz"><input type="radio" id="discapacidad_motriz" name="discapacidad" value="motriz" required> Discapacidad Motriz</label>
+                        <label for="discapacidad_sorda"><input type="radio" id="discapacidad_sorda" name="discapacidad" value="sorda" required> Discapacidad Sorda</label>
+                        <label for="discapacidad_cognitiva"><input type="radio" id="discapacidad_cognitiva" name="discapacidad" value="cognitiva" required> Discapacidad Cognitiva</label>
+                        <label for="discapacidad_sordo_cego"><input type="radio" id="discapacidad_sordo_cego" name="discapacidad" value="sordo_cego" required> Sordo Ceguera</label>
+                        <label for="discapacidad_trastorno"><input type="radio" id="discapacidad_trastorno" name="discapacidad" value="trastorno" required> Trastorno de la voz y el habla</label>
+                        <label for="discapacidad_otra"><input type="radio" id="discapacidad_otra" name="discapacidad" value="otra" required> Otra</label>
 
-                    <input type="radio" id="independiente" name="trabajo" value="independiente" required>
-                    <label for="independiente">Sí, soy independiente</label><br>
+                        <div id="otra_discapacidad" style="display:none;">
+                            <label for="descripcion_discapacidad">¿Cuál es su discapacidad?</label>
+                            <input type="text" id="descripcion_discapacidad" name="descripcion_discapacidad">
+                        </div>
+                    </div>
+
+                    <div class="form-group radio-group">
+                        <p>¿Usted trabaja actualmente?</p>
+                        <label for="no_trabajo"><input type="radio" id="no_trabajo" name="trabajo" value="no_trabajo" required> No estoy trabajando</label>
+                        <label for="empleado"><input type="radio" id="empleado" name="trabajo" value="empleado" required> Sí, soy empleado</label>
+                        <label for="independiente"><input type="radio" id="independiente" name="trabajo" value="independiente" required> Sí, soy independiente</label>
+                    </div>
 
                     <button type="submit">Enviar Formulario</button>
                 </fieldset>
@@ -192,6 +236,7 @@
     </footer>
 
     <script>
+        // Función para ir a la siguiente sección
         function mostrarInformacionPersonal() {
             const carrera = document.querySelector('[name="carrera"]');
             if (carrera.value === "") {
@@ -204,10 +249,17 @@
 
         function mostrarEncuestaPersonal() {
             const nombre = document.getElementById('nombre');
-            if (nombre.value === "") {
-                alert("Por favor, ingrese su nombre.");
+            const primerApellido = document.getElementById('primer_apellido');
+            if (nombre.value === "" || primerApellido.value === "") {
+                if (nombre.value === "") {
+                    document.getElementById('errorNombre').textContent = "Este campo es obligatorio";
+                }
+                if (primerApellido.value === "") {
+                    document.getElementById('errorPrimerApellido').textContent = "Este campo es obligatorio";
+                }
                 return;
             }
+
             document.getElementById('seccionInformacionPersonal').style.display = 'none';
             document.getElementById('seccionEncuestaPersonal').style.display = 'block';
         }
@@ -222,6 +274,13 @@
                     document.getElementById("otra_discapacidad").style.display = 'none';
                 }
             });
+        });
+
+        // Mostrar mensaje de éxito y redirigir a la página principal al enviar el formulario
+        document.getElementById('formularioInscripcion').addEventListener('submit', function(e) {
+            e.preventDefault();  // Evitar que el formulario se envíe de la manera tradicional
+            alert("Formulario enviado correctamente.");
+            window.location.href = 'index.html';  // Redirigir a la página principal
         });
     </script>
 </body>
