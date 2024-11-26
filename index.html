@@ -3,67 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Inscripción</title>
+    <title>Bienvenido al Formulario de Inscripción</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Formulario de Inscripción a Carrera</h1>
+        <h1>Formulario de Inscripción</h1>
     </header>
+
     <main>
-        <form action="#" method="POST">
-            <fieldset>
-                <legend>¿En qué carrera desea inscribirse?</legend>
-                <select name="carrera" required>
-                    <option value="" disabled selected>Seleccione una carrera</option>
-                    <option value="administracion">Administración de Empresas</option>
-                    <option value="bacteriologia">Bacteriología</option>
-                    <option value="contaduria">Contaduría Pública</option>
-                    <option value="derecho">Derecho</option>
-                    <option value="enfermeria">Enfermería</option>
-                    <option value="ingenieria_sistemas">Ingeniería de Sistemas</option>
-                    <option value="instrumentacion">Instrumentación Quirúrgica</option>
-                    <option value="educacion_infantil">Educación Infantil</option>
-                    <option value="medicina">Medicina</option>
-                    <option value="odontologia">Odontología</option>
-                    <option value="prehospitalaria">Tecnología en Atención Prehospitalaria</option>
-                    <option value="estetica">Tecnología en Estética y Cosmetología</option>
-                    <option value="mecanica_dental">Tecnología en Mecánica Dental</option>
-                    <option value="trabajo_social">Trabajo Social</option>
-                </select>
-            </fieldset>
-
-            <fieldset>
-                <legend>Información Personal</legend>
-                <label for="nombre">Primer Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
-                
-                <label for="segundo_nombre">Segundo Nombre:</label>
-                <input type="text" id="segundo_nombre" name="segundo_nombre">
-
-                <label for="primer_apellido">Primer Apellido:</label>
-                <input type="text" id="primer_apellido" name="primer_apellido" required>
-
-                <label for="segundo_apellido">Segundo Apellido:</label>
-                <input type="text" id="segundo_apellido" name="segundo_apellido">
-                
-                <!-- Más campos según las imágenes -->
-            </fieldset>
-
-            <fieldset>
-                <legend>Encuesta Personal</legend>
-                <p>¿Tiene usted hijos?</p>
-                <input type="radio" id="no_hijos" name="hijos" value="no_tengo">
-                <label for="no_hijos">No tengo</label>
-                <br>
-                <input type="radio" id="1_hijo" name="hijos" value="1_hijo">
-                <label for="1_hijo">1 hijo</label>
-                <!-- Más opciones según la imagen -->
-            </fieldset>
-
-            <button type="submit">Enviar</button>
-        </form>
+        <section>
+            <h2>Bienvenido al Sistema de Inscripción</h2>
+            <p>Este formulario es para inscribirse en la carrera de tu elección. Por favor, lee atentamente las instrucciones y presiona el botón para comenzar.</p>
+            <a href="formulario.html">
+                <button>Inscribirse</button>
+            </a>
+        </section>
     </main>
+
     <footer>
         <p>© 2024 Formulario de Inscripción</p>
     </footer>
