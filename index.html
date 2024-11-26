@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Inscripción</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Enlace al archivo CSS -->
+</head>
+<body>
+    <form>
+        <h2>Formulario de Inscripción a Carrera</h2>
+
+        <!-- Selección de carrera -->
+        <div class="form-section">
+            <label for="carrera">¿En qué carrera desea inscribirse?</label>
+            <select id="carrera" name="carrera" required>
+                <option value="">Seleccione una carrera</option>
+                <option value="administracion">Administración de Empresas</option>
+                <option value="medicina">Medicina</option>
+                <!-- Resto de opciones -->
+            </select>
+        </div>
+
+        <!-- Información personal -->
+        <div class="form-section">
+            <label for="nombre">Primer Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="apellido">Primer Apellido</label>
+            <input type="text" id="apellido" name="apellido" required>
+
+            <label for="fecha-nacimiento">Fecha de Nacimiento</label>
+            <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" required>
+        </div>
+
+        <button type="submit">Enviar</button>
+    </form>
+</body> <script src="script.js"></script>
+</html>
