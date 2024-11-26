@@ -23,9 +23,10 @@ main {
 
 fieldset {
     border: 1px solid #ddd;
-    padding: 10px 15px;
+    padding: 15px 20px;
     margin-bottom: 20px;
     border-radius: 5px;
+    box-sizing: border-box; /* Evita desbordes */
 }
 
 legend {
@@ -43,6 +44,7 @@ input, select, button {
     margin: 5px 0 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box; /* Hace que el padding no cause desbordes */
 }
 
 button {
@@ -54,4 +56,13 @@ button {
 
 button:hover {
     background-color: #555;
+}
+
+/* Estilo para los radio buttons */
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+input[type="radio"] + label {
+    margin-right: 20px;
 }
