@@ -108,6 +108,7 @@
             <div id="seccionEncuestaPersonal" style="display:none;">
                 <fieldset>
                     <legend>Encuesta Personal</legend>
+
                     <p>¿Tiene usted hijos?</p>
                     <input type="radio" id="no_hijos" name="hijos" value="no_tengo" required>
                     <label for="no_hijos">No tengo</label><br>
@@ -153,4 +154,75 @@
                     <input type="radio" id="discapacidad_sorda" name="discapacidad" value="sorda" required>
                     <label for="discapacidad_sorda">Discapacidad Sorda</label><br>
 
-                    <input type="radio" id="discapacidad_cognitiva
+                    <input type="radio" id="discapacidad_cognitiva" name="discapacidad" value="cognitiva" required>
+                    <label for="discapacidad_cognitiva">Discapacidad Cognitiva</label><br>
+
+                    <input type="radio" id="discapacidad_sordo_cego" name="discapacidad" value="sordo_cego" required>
+                    <label for="discapacidad_sordo_cego">Sordo Ceguera</label><br>
+
+                    <input type="radio" id="discapacidad_trastorno" name="discapacidad" value="trastorno" required>
+                    <label for="discapacidad_trastorno">Trastorno de la voz y el habla</label><br>
+
+                    <input type="radio" id="discapacidad_otra" name="discapacidad" value="otra" required>
+                    <label for="discapacidad_otra">Otra</label><br>
+
+                    <div id="otra_discapacidad" style="display:none;">
+                        <label for="descripcion_discapacidad">¿Cuál es su discapacidad?</label>
+                        <input type="text" id="descripcion_discapacidad" name="descripcion_discapacidad">
+                    </div>
+
+                    <p>¿Usted trabaja actualmente?</p>
+                    <input type="radio" id="no_trabajo" name="trabajo" value="no_trabajo" required>
+                    <label for="no_trabajo">No estoy trabajando</label><br>
+
+                    <input type="radio" id="empleado" name="trabajo" value="empleado" required>
+                    <label for="empleado">Sí, soy empleado</label><br>
+
+                    <input type="radio" id="independiente" name="trabajo" value="independiente" required>
+                    <label for="independiente">Sí, soy independiente</label><br>
+
+                    <button type="submit">Enviar Formulario</button>
+                </fieldset>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <p>©️ 2024 Formulario de Inscripción</p>
+    </footer>
+
+    <script>
+        function mostrarInformacionPersonal() {
+            const carrera = document.querySelector('[name="carrera"]');
+            if (carrera.value === "") {
+                alert("Por favor, seleccione una carrera.");
+                return;
+            }
+            document.getElementById('seccionCarrera').style.display = 'none';
+            document.getElementById('seccionInformacionPersonal').style.display = 'block';
+        }
+
+        function mostrarEncuestaPersonal() {
+            const nombre = document.getElementById('nombre');
+            if (nombre.value === "") {
+                alert("Por favor, ingrese su nombre.");
+                return;
+            }
+            document.getElementById('seccionInformacionPersonal').style.display = 'none';
+            document.getElementById('seccionEncuestaPersonal').style.display = 'block';
+        }
+
+        // Mostrar campo adicional de discapacidad cuando se selecciona "Otra"
+        const discapacidadRadios = document.querySelectorAll('[name="discapacidad"]');
+        discapacidadRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.value === "otra") {
+                    document.getElementById("otra_discapacidad").style.display = 'block';
+                } else {
+                    document.getElementById("otra_discapacidad").style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
