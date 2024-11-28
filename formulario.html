@@ -29,7 +29,6 @@
             border-color: red;
         }
 
-        /* Botón "Volver a la Página Anterior" */
         #backButton {
             position: absolute;
             top: 20px;
@@ -66,7 +65,6 @@
             margin-right: 10px;
         }
 
-        /* Separador entre preguntas */
         .separator {
             margin: 20px 0;
             border-top: 2px solid #ccc;
@@ -94,11 +92,126 @@
 
     <main>
         <form id="formularioInscripcion" action="#" method="POST">
-            <!-- Encuesta personal -->
-            <div id="seccionEncuestaPersonal" style="display:block;">
+            <!-- Sección de selección de carrera -->
+            <div id="seccionCarrera">
+                <fieldset>
+                    <legend>¿En qué carrera desea inscribirse?</legend>
+                    <select name="carrera" required>
+                        <option value="" disabled selected>Seleccione una carrera</option>
+                        <option value="administracion">Administración de Empresas</option>
+                        <option value="bacteriologia">Bacteriología</option>
+                        <option value="contaduria">Contaduría Pública</option>
+                        <option value="derecho">Derecho</option>
+                        <option value="enfermeria">Enfermería</option>
+                        <option value="ingenieria_sistemas">Ingeniería de Sistemas</option>
+                        <option value="instrumentacion">Instrumentación Quirúrgica</option>
+                        <option value="educacion_infantil">Educación Infantil</option>
+                        <option value="medicina">Medicina</option>
+                        <option value="odontologia">Odontología</option>
+                        <option value="prehospitalaria">Tecnología en Atención Prehospitalaria</option>
+                        <option value="estetica">Tecnología en Estética y Cosmetología</option>
+                        <option value="mecanica_dental">Tecnología en Mecánica Dental</option>
+                        <option value="trabajo_social">Trabajo Social</option>
+                    </select>
+                </fieldset>
+                <button type="button" onclick="mostrarInformacionPersonal()">Siguiente</button>
+            </div>
+
+            <!-- Sección de información personal -->
+            <div id="seccionInformacionPersonal" style="display:none;">
+                <fieldset>
+                    <legend>Información Personal</legend>
+                    <div class="form-group">
+                        <label for="nombre">Primer Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                        <span class="error" id="errorNombre"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="segundo_nombre">Segundo Nombre:</label>
+                        <input type="text" id="segundo_nombre" name="segundo_nombre">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="primer_apellido">Primer Apellido:</label>
+                        <input type="text" id="primer_apellido" name="primer_apellido" required>
+                        <span class="error" id="errorPrimerApellido"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="segundo_apellido">Segundo Apellido:</label>
+                        <input type="text" id="segundo_apellido" name="segundo_apellido">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Datos Adicionales</legend>
+                    <div class="form-group">
+                        <label for="tipo_documento">Tipo de Documento:</label>
+                        <select name="tipo_documento" id="tipo_documento" required>
+                            <option value="" disabled selected>Seleccione un tipo de documento</option>
+                            <option value="cedula">Cédula de Ciudadanía</option>
+                            <option value="pasaporte">Pasaporte</option>
+                            <option value="tarjeta_identidad">Tarjeta de Identidad</option>
+                            <option value="cedula_extranjeria">Cédula de Extranjería</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="numero_documento">Número de Documento:</label>
+                        <input type="text" id="numero_documento" name="numero_documento" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sexo">Sexo Biológico:</label>
+                        <select name="sexo" id="sexo" required>
+                            <option value="" disabled selected>Seleccione su sexo biológico</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="estado_civil">Estado Civil:</label>
+                        <select name="estado_civil" id="estado_civil" required>
+                            <option value="" disabled selected>Seleccione su estado civil</option>
+                            <option value="soltero">Soltero</option>
+                            <option value="casado">Casado</option>
+                            <option value="divorciado">Divorciado</option>
+                            <option value="viudo">Viudo</option>
+                            <option value="union_libre">Unión Libre</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Número de Teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="celular">Número de Celular:</label>
+                        <input type="tel" id="celular" name="celular" required>
+                    </div>
+                </fieldset>
+
+                <button type="button" onclick="mostrarEncuestaPersonal()">Siguiente</button>
+            </div>
+
+            <!-- Sección de encuesta personal -->
+            <div id="seccionEncuestaPersonal" style="display:none;">
                 <fieldset>
                     <legend>Encuesta Personal</legend>
-
                     <p>¿Tiene usted hijos?</p>
                     <div class="option-box">
                         <label><input type="radio" id="no_hijos" name="hijos" value="no_tengo" required> No tengo</label>
